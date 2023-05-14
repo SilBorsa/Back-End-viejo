@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("tics")
+@RequestMapping("tic")
 @CrossOrigin (origins = "http://localhost:4200")
 public class EstudioTicController {
     @Autowired
@@ -56,7 +56,7 @@ public class EstudioTicController {
     }
     
     //edicion
-    @PutMapping("/editar/{idTic}")
+    @PutMapping("/editarTic/{idTic}")
     public ResponseEntity<?> update(@PathVariable("idTic") int idTic, @RequestBody dtoEstudioTic dtoTic){
         if(!ticService.existsById(idTic))
             return new ResponseEntity(new Mensaje("El id no existe enl a tabla EstudioTic!"), HttpStatus.BAD_REQUEST);
@@ -77,7 +77,7 @@ public class EstudioTicController {
         return new ResponseEntity(new Mensaje("Curso actualizado!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idTic}")
+    @DeleteMapping("/borrarTic/{idTic}")
     public ResponseEntity<?> delete(@PathVariable("idTic") int idTic){
         if(!ticService.existsById(idTic))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla EstudioTic!"), HttpStatus.BAD_REQUEST);

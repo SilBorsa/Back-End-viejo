@@ -56,7 +56,7 @@ public class ProyectoController {
     }
     
     //edicion
-    @PutMapping("/editar/{idPy}")
+    @PutMapping("/editarPy/{idPy}")
     public ResponseEntity<?> update(@PathVariable("idPy") int idPy, @RequestBody dtoProyecto dtoPy){
         if(!pyService.existsById(idPy))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Proyecto"), HttpStatus.BAD_REQUEST);
@@ -76,7 +76,7 @@ public class ProyectoController {
         return new ResponseEntity(new Mensaje("Proyecto actualizado!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idPy}")
+    @DeleteMapping("/borrarPy/{idPy}")
     public ResponseEntity<?> delete(@PathVariable("idPy") int idPy){
         if(!pyService.existsById(idPy))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Proyecto!"), HttpStatus.BAD_REQUEST);

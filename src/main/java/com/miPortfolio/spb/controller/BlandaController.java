@@ -43,7 +43,7 @@ public class BlandaController {
     }
     
     //creacion
-    @PostMapping("/crearBlanda")
+    @PostMapping("/crearSoft")
     public ResponseEntity<?> create(@RequestBody dtoBlanda dtoBlanda){
         if(StringUtils.isBlank(dtoBlanda.getNombreBlanda()))
             return new ResponseEntity(new Mensaje("Debe ingresar el nombre de la habilidad blanda!"), HttpStatus.BAD_REQUEST);
@@ -56,7 +56,7 @@ public class BlandaController {
     }
     
     //edicion
-    @PutMapping("/editar/{idBlanda}")
+    @PutMapping("/editarSoft/{idBlanda}")
     public ResponseEntity<?> update(@PathVariable("idBlanda") int idBlanda, @RequestBody dtoBlanda dtoBlanda){
         if(!blandaService.existsById(idBlanda))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Blandas"), HttpStatus.BAD_REQUEST);
@@ -75,7 +75,7 @@ public class BlandaController {
         return new ResponseEntity(new Mensaje("Habilidad blandas actualizada!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idBlanda}")
+    @DeleteMapping("/borrarSoft/{idBlanda}")
     public ResponseEntity<?> delete(@PathVariable("idBlanda") int idBlanda){
         if(!blandaService.existsById(idBlanda))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Blandas!"), HttpStatus.BAD_REQUEST);

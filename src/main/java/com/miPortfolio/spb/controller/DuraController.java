@@ -43,7 +43,7 @@ public class DuraController {
     }
     
     //creacion
-    @PostMapping("/crearDura")
+    @PostMapping("/crearHard")
     public ResponseEntity<?> create(@RequestBody dtoDura dtoDura){
         if(StringUtils.isBlank(dtoDura.getNombreDura()))
             return new ResponseEntity(new Mensaje("Debe ingresar el nombre de la habilidad dura!"), HttpStatus.BAD_REQUEST);
@@ -56,7 +56,7 @@ public class DuraController {
     }
     
     //edicion
-    @PutMapping("/editar/{idDura}")
+    @PutMapping("/editarHard/{idDura}")
     public ResponseEntity<?> update(@PathVariable("idDura") int idDura, @RequestBody dtoDura dtoDura){
         if(!duraService.existsById(idDura))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Duras"), HttpStatus.BAD_REQUEST);
@@ -75,7 +75,7 @@ public class DuraController {
         return new ResponseEntity(new Mensaje("Habilidad duras actualizada!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idDura}")
+    @DeleteMapping("/borrarHard/{idDura}")
     public ResponseEntity<?> delete(@PathVariable("idDura") int idDura){
         if(!duraService.existsById(idDura))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Duras!"), HttpStatus.BAD_REQUEST);

@@ -56,7 +56,7 @@ public class LaboralController {
     }
     
     //edicion
-    @PutMapping("/editar/{idLaboral}")
+    @PutMapping("/editarLab/{idLaboral}")
     public ResponseEntity<?> update(@PathVariable("idLaboral") int idLaboral, @RequestBody dtoLaboral dtoLab){
         if(!labService.existsById(idLaboral))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Laboral"), HttpStatus.BAD_REQUEST);
@@ -77,7 +77,7 @@ public class LaboralController {
         return new ResponseEntity(new Mensaje("Empresa actualizada!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idLaboral}")
+    @DeleteMapping("/borrarLab/{idLaboral}")
     public ResponseEntity<?> delete(@PathVariable("idLaboral") int idLaboral){
         if(!labService.existsById(idLaboral))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Laboral!"), HttpStatus.BAD_REQUEST);

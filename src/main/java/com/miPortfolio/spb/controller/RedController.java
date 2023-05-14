@@ -56,7 +56,7 @@ public class RedController {
     }
     
     //edicion
-    @PutMapping("/editar/{idRed}")
+    @PutMapping("/editarRed/{idRed}")
     public ResponseEntity<?> update(@PathVariable("idRed") int idRed, @RequestBody dtoRed dtoRed){
         if(!redService.existsById(idRed))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Redes"), HttpStatus.BAD_REQUEST);
@@ -75,7 +75,7 @@ public class RedController {
         return new ResponseEntity(new Mensaje("Red actualizado!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idRed}")
+    @DeleteMapping("/borrarRed/{idRed}")
     public ResponseEntity<?> delete(@PathVariable("idRed") int idRed){
         if(!redService.existsById(idRed))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla Redes!"), HttpStatus.BAD_REQUEST);

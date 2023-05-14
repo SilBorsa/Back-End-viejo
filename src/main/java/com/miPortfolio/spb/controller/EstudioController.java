@@ -56,7 +56,7 @@ public class EstudioController {
     }
     
     //edicion
-    @PutMapping("/editar/{idEstudio}")
+    @PutMapping("/editarEdu/{idEstudio}")
     public ResponseEntity<?> update(@PathVariable("idEstudio") int idEstudio, @RequestBody dtoEstudioFormal dtoEdu){
         if(!eduService.existsById(idEstudio))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla EstudioFormal!"), HttpStatus.BAD_REQUEST);
@@ -77,7 +77,7 @@ public class EstudioController {
         return new ResponseEntity(new Mensaje("Estudio actualizado!"), HttpStatus.OK);
     }
 
-    @DeleteMapping("/borrar/{idEstudio}")
+    @DeleteMapping("/borrarEdu/{idEstudio}")
     public ResponseEntity<?> delete(@PathVariable("idEstudio") int idEstudio){
         if(!eduService.existsById(idEstudio))
             return new ResponseEntity(new Mensaje("El id no existe en la tabla EstudioFormal!"), HttpStatus.BAD_REQUEST);
