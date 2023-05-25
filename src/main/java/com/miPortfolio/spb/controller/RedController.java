@@ -34,7 +34,7 @@ public class RedController {
     }
 
     //Edicion
-    @GetMapping("/detail/{idRed}")
+    @GetMapping("/detailRed/{idRed}")
     public ResponseEntity<Redes> getById(@PathVariable("idRed") int idRed){
         if(!redService.existsById(idRed))
             return new ResponseEntity(new Mensaje("Ese id no existe en la tabla Proyecto!"), HttpStatus.NOT_FOUND);
