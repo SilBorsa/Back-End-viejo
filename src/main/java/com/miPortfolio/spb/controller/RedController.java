@@ -50,7 +50,7 @@ public class RedController {
         if(redService.existsByNombreRed(dtoRed.getNombreRed()))
             return new ResponseEntity(new Mensaje("Esa red ya existe!"), HttpStatus.BAD_REQUEST);
         
-        Redes redes = new Redes (dtoRed.getIdPersona(), dtoRed.getNombreRed(), dtoRed.getUrl_Red(), dtoRed.getUrl_imgRed());
+        Redes redes = new Redes (dtoRed.getIdPersona(), dtoRed.getNombreRed(), dtoRed.getUrlRed(), dtoRed.getUrl_imgRed());
         redService.save(redes);
         return new ResponseEntity(new Mensaje("Red guardada!"), HttpStatus.OK);
     }
@@ -68,7 +68,7 @@ public class RedController {
         Redes redes = redService.getOne(idRed).get();
         redes.setIdPersona(dtoRed.getIdPersona());
         redes.setNombreRed(dtoRed.getNombreRed());
-        redes.setUrl_Red(dtoRed.getUrl_Red());
+        redes.setUrlRed(dtoRed.getUrlRed());
         redes.setUrl_imgRed(dtoRed.getUrl_imgRed());
                 
         redService.save(redes);
